@@ -117,3 +117,6 @@ dist
 .DS_Store
 
 dist/
+
+#sapper
+__sapper__/

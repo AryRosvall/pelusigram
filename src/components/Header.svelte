@@ -1,5 +1,11 @@
 <script>
-  import { likeCount } from '../store/store';
+  import { likeCount } from "../store/store";
+  import { goto } from "@sapper/app";
+  export let segment;
+
+  const navigateHome = async () => {
+    await goto("/");
+  };
 </script>
 
 <style>
@@ -39,7 +45,7 @@
     margin: 0;
     font-size: 28px;
     color: black;
-    font-family: 'Pacifico', cursive;
+    font-family: "Pacifico", cursive;
     cursor: pointer;
     position: relative;
     background: #fff;
@@ -48,7 +54,7 @@
   }
 
   h1:before {
-    content: '';
+    content: "";
     display: block;
     width: 100%;
     height: 100%;
@@ -58,13 +64,17 @@
     top: 0;
     left: 0;
   }
+
+  [aria-current] i {
+    color: #bc1888;
+  }
 </style>
 
 <div class="Header">
   <div class="Header-container">
     <div class="Header-content">
       <div class="Header-logo">
-        <h1>Pelusigram</h1>
+        <h1 on:click={navigateHome}>Pelusigram</h1>
       </div>
       <div class="Header-nav">
         <ul>
@@ -73,7 +83,12 @@
             {$likeCount === 0 ? '' : $likeCount}
           </li>
           <li>
-            <i class="fas fa-user-alt" />
+            <a
+              aria-current={segment === 'profile' ? 'page' : undefined}
+              rel="prefetch"
+              href="profile">
+              <i class="fas fa-user-alt" />
+            </a>
           </li>
         </ul>
       </div>
