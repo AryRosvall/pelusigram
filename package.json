@@ -8,7 +8,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "heroku-prebuild": "sapper build",
     "dev": "sapper dev",
     "build": "sapper build",
     "export": "sapper export",
