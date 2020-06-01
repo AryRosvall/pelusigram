@@ -1,9 +1,14 @@
 {
   "name": "pelusigram",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.16.x",
+    "npm": "6.x"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {
+    "heroku-prebuild": "sapper build",
     "dev": "sapper dev",
     "build": "sapper build",
     "export": "sapper export",
